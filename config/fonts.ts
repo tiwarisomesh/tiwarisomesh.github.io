@@ -11,3 +11,4 @@ export const fontMono = FontMono({
   variable: "--font-mono",
   display: "swap",
 });
+

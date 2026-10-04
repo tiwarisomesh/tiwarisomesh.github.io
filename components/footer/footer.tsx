@@ -1,17 +1,14 @@
-"use client";
-
 import { Link, Button, Chip, Separator } from "@heroui/react";
 import Image from "next/image";
 import {
   FaGithub, FaLinkedin,
   FaEnvelope, FaUniversity,
-  FaArrowUp,
-  FaBlog,
-  FaProjectDiagram
+  FaProjectDiagram,
+  FaNewspaper
 } from "react-icons/fa";
+import { ScrollTop } from "./scroll-top";
 
 export const Footer = () => {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
     <footer className="relative bg-linear-to-br from-background via-default/30 to-accent/5 border-t border-separator/50 backdrop-blur-lg">
@@ -44,7 +41,7 @@ export const Footer = () => {
             <ul className="space-y-2">
               {[
                 { label: "About me", href: "/about", icon: FaUniversity },
-                { label: "Posts", href: "/posts", icon: FaBlog },
+                { label: "Posts", href: "/posts", icon: FaNewspaper },
                 { label: "Projects", href: "/projects", icon: FaProjectDiagram },
               ].map((item, idx) => (
                 <li key={idx}>
@@ -69,17 +66,14 @@ export const Footer = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:scale-105 transition-transform"
+                className="w-full hover:scale-10  5 transition-transform"
               >
                 <span className="flex w-full items-center justify-center gap-2">
-                  <FaEnvelope className="h-4 w-4 shrink-0" />
+                  <FaEnvelope className="h-5 w-4 shrink-0" />
                   <span>Email Me</span>
                 </span>
               </Button>
             </a>
-            <p className="text-xs text-muted">
-              Connect with me regarding research, or related queries.
-            </p>
           </div>
 
           <div className="space-y-4">
@@ -115,17 +109,7 @@ export const Footer = () => {
           <div className="flex flex-wrap gap-2 items-center justify-center">
             <span>© {new Date().getFullYear()} Somesh Tiwari.</span>
           </div>
-          <Button
-            size="sm"
-            variant="primary"
-            className="self-center"
-            onClick={scrollToTop}
-          >
-            <div className="flex items-center gap-2">
-              <FaArrowUp className="w-3 h-3" />
-              <span>Back to Top</span>
-            </div>
-          </Button>
+          <ScrollTop />
         </div>
 
         <div className="absolute bottom-0 right-0 w-24 h-24 lg:w-64 lg:h-64 bg-linear-to-tl from-accent/10 to-transparent rounded-full blur-3xl -z-10" />
@@ -133,4 +117,4 @@ export const Footer = () => {
       </div>
     </footer>
   );
-};
+};  
